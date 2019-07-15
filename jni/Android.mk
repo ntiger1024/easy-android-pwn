@@ -18,10 +18,15 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 LOCAL_MODULE := 04-shellcode-static
 LOCAL_SRC_FILES := src/04-shellcode-static.c
-LOCAL_CFLAGS := -z execstack -Wl,-z,execstack
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := 05-shellcode-dynamic
+LOCAL_SRC_FILES := src/05-shellcode-dynamic.c
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := 06-system-rop
 LOCAL_SRC_FILES := src/06-system-rop.c
 include $(BUILD_EXECUTABLE)
+
