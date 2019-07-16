@@ -3,8 +3,8 @@ Easy android pwn
 
 This project is based on [easy-linux-pwn](https://github.com/xairy/easy-linux-pwn).
 
-Those tasks in the origin project can't be solved on the newer android platforms(for example, 9.0)
-because thare are some differences between android and traditional linux distributions:
+Those tasks in the origin project can't be solved on newer android platforms(for example, 9.0).
+Thare are some differences between android and other linux distributions:
 
 1. Android randomizes addresses of dynamic libraries even if ASLR is disabled
 2. Android-NDK forces '-z noexecstack' option when build executables
@@ -16,7 +16,7 @@ Rrerequisites & Setup
 
 1. Follow instructions in [easy-linux-pwn](https://github.com/xairy/easy-linux-pwn)
 2. Android 9.0 device
-3. Build you own Android ROM with the following change. (or just push [linker64](linker64) to /system/bin/ if you are lucky enough(May brick you device!!!))
+3. Build you own Android ROM with the following change. (or just push [linker64](linker64) to /system/bin/ if you are lucky enough(may brick you device!!!))
 
     ```C++
     diff --git a/linker/linker.cpp b/linker/linker.cpp
@@ -67,7 +67,7 @@ Rrerequisites & Setup
        munmap(start + size, mmap_ptr + mmap_size - (start + size));
     ```
 
-4.  For task 04 and task 05, make their stack executable using [`switch_execstack`](tools/switch_execstack.cc)
+4.  For task 04 and task 05, make their stacks executable using [`switch_execstack`](tools/switch_execstack)
 
     ```shell
     $ ./tools/switch_execstack libs/arm64-v8a/04-shellcode-static on
@@ -82,6 +82,7 @@ Rrerequisites & Setup
     ```
 
 5. Disable ASLR: `adb shell 'echo 0 > /proc/sys/kernel/randomize_va_space'`
+6. Push exectuables to device: /data/local/tmp/
 
 Issues
 ------

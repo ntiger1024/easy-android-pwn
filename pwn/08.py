@@ -2,9 +2,9 @@
 
 '''
 Gadgets:
-    0x0009bcd0: ldp x29, x30, [sp, #0x20]; ldp x20, x19, [sp, #0x10]; ldp x22, x21, [sp], #0x30; ret;
-    0x000779c4: mov x0, x21; blr x20;
-    0x00041538: str x0, [x19]; ldp x29, x30, [sp, #0x10]; ldr x19, [sp], #0x20; ret;
+gg1:    0x0009bcd0: ldp x29, x30, [sp, #0x20]; ldp x20, x19, [sp, #0x10]; ldp x22, x21, [sp], #0x30; ret;
+gg2:    0x000779c4: mov x0, x21; blr x20;
+gg3:    0x00041538: str x0, [x19]; ldp x29, x30, [sp, #0x10]; ldr x19, [sp], #0x20; ret;
 
 Stack:
             0x8: not_called

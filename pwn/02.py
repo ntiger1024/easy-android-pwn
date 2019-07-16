@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
 '''
-adb root && adb shell 'echo 0 > /proc/sys/kernel/randomize_va_space'
-
 stack:
         ~~~~~~
         8
