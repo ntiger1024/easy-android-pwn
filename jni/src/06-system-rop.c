@@ -8,6 +8,7 @@ int vulnerable() {
 
 	char buffer[128];
 	read(STDIN_FILENO, &buffer[0], 512);
+  return 0;
 }
 
 int main(int argc, char** argv) {

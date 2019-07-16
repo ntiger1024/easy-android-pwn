@@ -11,6 +11,7 @@ int vulnerable() {
 
 	char buffer[128];
 	read(STDIN_FILENO, &buffer[0], 1024);
+  return 0;
 }
 
 void not_called() {
@@ -21,6 +22,9 @@ void not_called() {
 
 int main(int argc, char** argv) {
 	vulnerable();
+  if (argc == 100) {
+    not_called();
+  }
 
 	return EXIT_SUCCESS;
 }
